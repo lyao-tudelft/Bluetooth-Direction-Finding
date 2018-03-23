@@ -11,7 +11,7 @@ path = [path last_dir];
 data_dir = [last_dir, '\data'];
 path = [path data_dir];
 
-% add al folders into search path
+% add all folders into search path
 cellfun(@addpath, path);
 
 % free memory

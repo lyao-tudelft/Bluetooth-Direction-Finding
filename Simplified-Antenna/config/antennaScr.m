@@ -1,5 +1,5 @@
 %% antenna array model
-load('antenna_5.mat');
+load('antenna.mat');
 
 % antenna model
 antenna = ant;

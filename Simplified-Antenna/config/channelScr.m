@@ -14,7 +14,7 @@ channel.MULTIPATH       = true;
 channel.external = true;
 
 % number of rays we consdier
-d = 3;
+d = 2;
 if channel.external
     channel.nRays = d;
     

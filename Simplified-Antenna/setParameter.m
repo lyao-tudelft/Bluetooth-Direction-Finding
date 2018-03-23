@@ -7,6 +7,7 @@
 
 %%
 addpath([pwd, '/config']);
+addpath([pwd, '/music']);
 
 %%
 fc = 2.4e9;  % Carrier frequency

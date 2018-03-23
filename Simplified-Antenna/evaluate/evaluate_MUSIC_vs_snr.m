@@ -28,7 +28,7 @@ isOverlapped = true;
 setAoA = 90;
 RXLPF = parameter.digitalPara.RXLPF;
 
-for io = 1:1
+for io = 1:2
     
     if isOverlapped
         disp('Overlapped');

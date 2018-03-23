@@ -20,7 +20,7 @@
 % close all
 
 %%
-run('setParameter.m');
+% run('setParameter.m');
 
 isOverlapped = false;
 
@@ -40,4 +40,4 @@ IQsample = iqSample( parameter, IQcte );
 [X, antArray] = iqProcess(parameter, IQsample, isOverlapped);
 
 %% AoA estimation
-res = MUSIC_old( parameter, X, isOverlapped, antArray, 'Modified');
+res = MUSIC( parameter, X, isOverlapped, antArray, 'Modified');

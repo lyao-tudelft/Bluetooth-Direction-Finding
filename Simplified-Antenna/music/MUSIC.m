@@ -191,7 +191,8 @@ spec = spec-max(spec)*ones(size(spec));
 
 % find the direction of max power
 % steering vector of estimated angles
-Ae = exp((0:m-1).'*1i*2*pi*d/lambda*cosd(est));
+me = size(Rx, 1);
+Ae = exp((0:me-1).'*1i*2*pi*d/lambda*cosd(est));
 
 % correlate with max eigenvector
 cov = abs(Ae.'*Us(:,1));
@@ -211,27 +212,29 @@ res.EVD.V = Lambda;
 res.AoA = est;
 res.LOS = los;
 
-figure
-plot(theta_range, spec, 'linewidth', 1.25);
-grid on;    hold on;
-title(name);
-xlabel('angle/degree');
-ylabel('Output Power/dB');
-
-snr = parameter.channel.snr;
-txt = {[num2str(m), ' antennas'], ['snr = ', num2str(snr), 'dB']};
-
-if parameter.antenna.MC
-    txt = ['with MC', txt];
-else
-    txt = ['without MC', txt];
-end
-
-len = length(txt);
-
-x = ones(1,len+1)*0.8;
-y = 0.9+(0:len)*0.05;
-text(x, y, txt, 'HorizontalAlignment', 'center', 'Units', 'normalized');
+% plot the spectrum
+% figure
+% plot(theta_range, spec, 'linewidth', 1.25);
+% grid on;    hold on;
+% title(name);
+% xlabel('angle/degree');
+% ylabel('Output Power/dB');
+% 
+% snr = parameter.channel.snr;
+% txt = {[num2str(m), ' antennas'], ['snr = ', num2str(snr), 'dB']};
+% 
+% if parameter.antenna.MC
+%     txt = ['with MC', txt];
+% else
+%     txt = ['without MC', txt];
+% end
+% 
+% len = length(txt);
+% 
+% x = ones(1,len)*0.8;
+% y = 0.9-(0:len-1)*0.05;
+% 
+% text(x, y, txt, 'HorizontalAlignment', 'center', 'Units', 'normalized');
 
 end
 
