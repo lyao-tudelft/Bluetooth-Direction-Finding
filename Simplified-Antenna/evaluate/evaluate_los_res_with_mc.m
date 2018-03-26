@@ -28,8 +28,8 @@ elseif ~parameter.channel.external
 end
 
 %% evaluation
-SNR = -40:-39;
-Nrun = 20;
+SNR = -40:2:40;
+Nrun = 2000;
 
 parameter.antenna.MC = true;
 
