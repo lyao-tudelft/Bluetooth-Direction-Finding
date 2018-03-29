@@ -2,16 +2,16 @@
 channel = struct();
 
 channel.snr             = inf;
-channel.amp             = [1 0.5 0.3];
-channel.delay           = [0 20e-9 50e-9];
+channel.amp             = [0.0039 8.7553e-4];
+channel.delay           = [3.1668e-8 4.4174e-8];
 channel.phase           = [0 0 0];
-channel.aoa             = [90 120 70];
+channel.aoa             = [90 95];
 channel.nRays           = length(channel.amp);
 channel.isNarrowBand    = true;
 channel.MULTIPATH       = true;
 
 %% Usage of Jac's model
-channel.external = true;
+channel.external = false;
 
 % number of rays we consdier
 d = 2;
@@ -39,7 +39,7 @@ if channel.external
                              'TX_pos', {data(:).TX_pos});
                          
     % AoA of rays of interest
-    channel.AoA = set.AoA(indxray);
+    channel.aoa = set.AoA(indxray);
     
     % number of multipath rays
     channel.nRays = length(channel.extChnl(1).tau);

@@ -1,15 +1,17 @@
 %% antenna array model
-load('antenna.mat');
+if highAccPosChar.numAntElm == 4
+    load('antenna.mat');
+elseif highAccPosChar.numAntElm == 5
+    load('antenna_5.mat');
+end
 
 % antenna model
 antenna = ant;
 
 %
-antenna.MC = true;
+antenna.MC = false;
 
 % compute coupling matrix from S parameter
-if antenna.MC
-    S = ant.SPara.Parameters;
-    coupMat = eye(size(S))-S;
-    antenna.coupMat = coupMat;
-end
+S = ant.SPara.Parameters;
+coupMat = eye(size(S))-S;
+antenna.coupMat = coupMat;

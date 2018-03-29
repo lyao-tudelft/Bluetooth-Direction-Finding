@@ -20,7 +20,7 @@
 % close all
 
 %%
-% run('setParameter.m');
+run('setParameter.m');
 
 isOverlapped = false;
 

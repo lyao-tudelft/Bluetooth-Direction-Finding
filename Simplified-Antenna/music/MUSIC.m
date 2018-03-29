@@ -194,8 +194,8 @@ spec = spec-max(spec)*ones(size(spec));
 me = size(Rx, 1);
 Ae = exp((0:me-1).'*1i*2*pi*d/lambda*cosd(est));
 
-% correlate with max eigenvector
-cov = abs(Ae.'*Us(:,1));
+% correlate with max eigenvector, then normalize
+cov = abs(Ae'*Us(:,1));
 
 % find the direction of max power
 [~, nlos] = max(cov);
@@ -220,8 +220,12 @@ res.LOS = los;
 % xlabel('angle/degree');
 % ylabel('Output Power/dB');
 % 
+% scatter(los, spec(theta_range==los), 'filled', 'v');
+% 
+% aoa = parameter.channel.aoa;
 % snr = parameter.channel.snr;
-% txt = {[num2str(m), ' antennas'], ['snr = ', num2str(snr), 'dB']};
+% txt = {[num2str(m), ' antennas'], ['snr = ', num2str(snr), 'dB'],...
+%     ['aoa = [', num2str(aoa), ']']};
 % 
 % if parameter.antenna.MC
 %     txt = ['with MC', txt];
